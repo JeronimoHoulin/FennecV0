@@ -1,5 +1,6 @@
-# Accio_Rate
-Crypto risk free interest rate.
+### Fennec Rate ###
+
+Benchmark risk free rate for stablecoins.  
 
 
 The idea behind this project is to offer a high quality product, through a solid UI, 
