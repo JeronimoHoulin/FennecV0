@@ -7,17 +7,16 @@ import Liquidator from './pages/Liquidator';
 import Social from './pages/Social';
 import Teams from './pages/Team';
 
-
 function App() {
 return (
 	<Router>
-	<Navbar />
-	<Switch>
-		<Route path='/' exact component={Home} />
-		<Route path='/liquidator' component={Liquidator} />
-		<Route path='/social' component={Social} />
-		<Route path='/team' component={Teams} />
-	</Switch>
+		<Navbar />
+		<Switch>
+			<Route path='/home' exact component={Home} />
+			<Route path='/liquidator' component={Liquidator} />
+			<Route path='/social' component={Social} />
+			<Route path='/team' component={Teams} />
+		</Switch>
 	</Router>
 );
 }

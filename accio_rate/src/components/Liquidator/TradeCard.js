@@ -18,7 +18,7 @@ export default function TradeCard() {
     <React.Fragment>
       <CssBaseline />
       <Container maxWidth="sm">
-        <Box sx={{ bgcolor: '#FFF89A', height: '80vh' }} >
+        <Box sx={{ bgcolor: '#595260', height: '80vh' }} >
             <Typography variant="h5" color="initial" align = "center">
                 Stake your USDT for an APY 10%
             </Typography>

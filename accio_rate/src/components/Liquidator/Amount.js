@@ -27,7 +27,7 @@ export default function Amount() {
   return (
     <Grid container spacing={2}>
             <Grid item xs={6}>
-                <Box sx={{ display: 'flex', flexWrap: 'wrap' }} ml={4}>
+                <Box sx={{ display: 'flex', flexWrap: 'wrap' }} ml={6}>
                 <div>
                     <FormControl fullWidth sx={{ m: 1 }} variant="filled">
                     <InputLabel htmlFor="filled-adornment-amount">Amount</InputLabel>
@@ -48,7 +48,7 @@ export default function Amount() {
 
             </Grid>
             <Grid item xs={6}>
-                
+
             </Grid>
         </Grid>
   );
