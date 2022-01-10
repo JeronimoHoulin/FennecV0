@@ -2,7 +2,7 @@ import React from 'react';
 import BackMp4 from "../components/img/FONDO.mp4";
 
 
-const Teams = () => {
+const Balance = () => {
 return (
 	<div
 	style={{
@@ -15,7 +15,7 @@ return (
 			position: "absolute",
 			width: "100%",
 			left: "50%",
-			top: "50%",
+			top: "60%",
 			objectFit: "cover",
 			transform: "translate(-50%, -50%)",
 			zIndex: "-1",
@@ -27,4 +27,4 @@ return (
 );
 };
 
-export default Teams;
+export default Balance;

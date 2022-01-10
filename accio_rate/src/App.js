@@ -5,7 +5,9 @@ import { BrowserRouter as Router, Routes, Route, Switch } from 'react-router-dom
 import Home from './pages/Home';
 import Liquidator from './pages/Liquidator';
 import Social from './pages/Social';
-import Teams from './pages/Team';
+import Balance from './pages/Balance';
+import Footer from './components/Footer';
+
 
 function App() {
 return (
@@ -15,8 +17,9 @@ return (
 			<Route path='/home' exact component={Home} />
 			<Route path='/liquidator' component={Liquidator} />
 			<Route path='/social' component={Social} />
-			<Route path='/team' component={Teams} />
+			<Route path='/balance' component={Balance} />
 		</Switch>
+		<Footer/>
 	</Router>
 );
 }
