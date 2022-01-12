@@ -42,23 +42,6 @@ async function f1(){
     let wsff_btc = new WebSocket(`wss://dstream.binance.com/ws/${symb_ff_btc}@trade`);
 
 
-
-    //spot 3m
-    let spot_btc = 0
-    //future 3m
-    let fut_btc = 0
-    //Tasa 3m 
-    let tasa_d_btc = 0
-    let tasa_a_btc= 0
-
-    //spot 6m 
-    let spots_btc = 0
-    //future 6m 
-    let futf_btc = 0
-    //Tasa 6m 
-    let tasaf_d_btc = 0
-    let tasaf_a_btc= 0
-
     let futy_btc = [];
     let futyf_btc = [];
     let spoty_btc = [];  
@@ -66,6 +49,8 @@ async function f1(){
     let spotter_btc = null;
     let futter_btc = null;
     let futterf_btc = null;
+
+    let anual1 = [];
 
 
     ////////////////SPOT call////////////////////////
@@ -89,29 +74,9 @@ async function f1(){
 
         let tasa = futter_btc / spotter_btc -1;
 
-        let anual = ((((tasa/diff3m)+1)**365)-1)*100;
+        anual1.push(((((tasa/diff3m)+1)**365)-1)*100);
 
-        if(anual >= 15){
-            spot_btc.style.color = "rgb(197, 197, 197)";
-            fut_btc.style.color = "rgb(197, 197, 197)";
-            tasa_a_btc.style.color = "rgb(0, 255, 34)";
-            tasa_d_btc.style.color = "rgb(0, 255, 34)";
-
-        }else if(anual < 10){
-            spot_btc.style.color = "black";
-            fut_btc.style.color = "black";
-            tasa_d_btc.style.color = "black";
-            tasa_a_btc.style.color = "rgb(255, 0, 34)";
-        }else{
-            spot_btc.style.color = "rgb(197, 197, 197)";
-            fut_btc.style.color = "rgb(197, 197, 197)";
-            tasa_a_btc.style.color = "rgb(197, 197, 197)";
-            tasa_d_btc.style.color = "yellow";
-        }
-
-        console.log(anual)
-
-
+        //console.log(anual)
 
     }
 
@@ -127,28 +92,8 @@ async function f1(){
         let tasa = futterf_btc / spotter_btc -1;
 
         let anual = ((((tasa/diff6m)+1)**365)-1)*100;
-        
-        if(anual >= 15){
-            spots_btc.style.color = "rgb(197, 197, 197)";
-            futf_btc.style.color = "rgb(197, 197, 197)";
-            tasaf_a_btc.style.color = "rgb(0, 255, 34)";
-            tasaf_d_btc.style.color = "rgb(0, 255, 34)";
 
-        }else if(anual < 10){
-            spots_btc.style.color = "black";
-            futf_btc.style.color = "black";
-            tasa_d_ada.style.color= "black";
-            tasaf_a_btc.style.color = "rgb(255, 0, 34)";
-        }else{
-            spots_btc.style.color = "rgb(197, 197, 197)";
-            futf_btc.style.color  = "rgb(197, 197, 197)";
-            tasa_a_btc.style.color = "rgb(197, 197, 197)";
-            tasa_d_btc.style.color = "yellow";
-        }
-
-
-
-
+        //console.log(anual)
    
     }
 
@@ -165,24 +110,6 @@ async function f1(){
     let wsf_eth = new WebSocket(`wss://dstream.binance.com/ws/${symb_f_eth}@trade`);//@markPrice
     let wsff_eth = new WebSocket(`wss://dstream.binance.com/ws/${symb_ff_eth}@trade`);
 
-
-
-    //spot 3m
-    let spot_eth = 0
-    //future 3m
-    let fut_eth = 0
-    //Tasa 3m 
-    let tasa_d_eth = 0
-    let tasa_a_eth= 0
-
-    //spot 6m 
-    let spots_eth = 0
-    //future 6m 
-    let futf_eth = 0
-    //Tasa 6m 
-    let tasaf_d_eth = 0
-    let tasaf_a_eth= 0
-
     let futy_eth = [];
     let futyf_eth = [];
     let spoty_eth = [];  
@@ -190,6 +117,8 @@ async function f1(){
     let spotter_eth = null;
     let futter_eth = null;
     let futterf_eth = null;
+
+    let anual2 = null;
 
 
     ////////////////SPOT call////////////////////////
@@ -212,26 +141,7 @@ async function f1(){
 
         let tasa = futter_eth / spotter_eth -1;
 
-        let anual = ((((tasa/diff3m)+1)**365)-1)*100;
-
-        if(anual >= 15){
-            spot_eth.style.color = "rgb(197, 197, 197)";
-            fut_eth.style.color = "rgb(197, 197, 197)";
-            tasa_a_eth.style.color = "rgb(0, 255, 34)";
-            tasa_d_eth.style.color = "rgb(0, 255, 34)";
-
-        }else if(anual < 10){
-            spot_eth.style.color = "black";
-            fut_eth.style.color = "black";
-            tasa_d_eth.style.color = "black";
-            tasa_a_eth.style.color = "rgb(255, 0, 34)";
-        }else{
-            spot_eth.style.color = "rgb(197, 197, 197)";
-            fut_eth.style.color = "rgb(197, 197, 197)";
-            tasa_a_eth.style.color = "rgb(197, 197, 197)";
-            tasa_d_eth.style.color = "yellow";
-        }
-
+        anual2 = ((((tasa/diff3m)+1)**365)-1)*100;
 
 
     }
@@ -249,32 +159,17 @@ async function f1(){
 
         let anual = ((((tasa/diff6m)+1)**365)-1)*100;
 
-        if(anual >= 15){
-            spots_eth.style.color = "rgb(197, 197, 197)";
-            futf_eth.style.color = "rgb(197, 197, 197)";
-            tasaf_a_eth.style.color = "rgb(0, 255, 34)";
-            tasaf_d_eth.style.color = "rgb(0, 255, 34)";
-
-        }else if(anual < 10){
-            spots_eth.style.color = "black";
-            futf_eth.style.color = "black";
-            tasaf_d_eth.style.color = "black";
-            tasaf_a_eth.style.color = "rgb(255, 0, 34)";
-        }else{
-            spots_eth.style.color = "rgb(197, 197, 197)";
-            futf_eth.style.color = "rgb(197, 197, 197)";
-            tasaf_a_eth.style.color = "rgb(197, 197, 197)";
-            tasaf_d_eth.style.color = "yellow";
-        }
-
    
     }
 
+    function yourFunction(){
+        // do whatever you like here
+        console.log(anual1[anual1.length-1])
 
-
-    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-
+        setTimeout(yourFunction, 500);
+    }
+    
+    yourFunction();
 
 }
 
