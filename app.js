@@ -165,11 +165,15 @@ async function f1(){
     function yourFunction(){
         // do whatever you like here
         console.log(anual1[anual1.length-1])
-
+        tasa_actual = anual1[anual1.length-1]
         setTimeout(yourFunction, 500);
+
+        let text1 = document.querySelector(".nashi")
+        text1.innerText = parseFloat(`${tasa_actual}%`).toFixed(2);
     }
     
     yourFunction();
+
 
 }
 
