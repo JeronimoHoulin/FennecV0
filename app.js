@@ -22,9 +22,12 @@ var diff6m = (maturity6m.getTime() - today.getTime())/(24*3600*1000);
 console.log(diff3m);
 console.log(diff6m);
 
+//Print Days 2 mat. in screen
 let days3m = document.querySelector(".days3m");
 days3m.textContent += `${diff3m}`;
 
+let days6m = document.querySelector(".days6m");
+days6m.textContent += `${diff6m}`;
 
 
 
@@ -50,7 +53,8 @@ async function f1(){
     let futter_btc = null;
     let futterf_btc = null;
 
-    let anual1 = [];
+    let anual1_btc = [];
+    let anual2_btc = [];
 
 
     ////////////////SPOT call////////////////////////
@@ -74,11 +78,11 @@ async function f1(){
 
         let tasa = futter_btc / spotter_btc -1;
 
-        anual1.push(((((tasa/diff3m)+1)**365)-1)*100);
-
-        //console.log(anual)
-
+        anual1_btc.push(((((tasa/diff3m)+1)**365)-1)*100);
+    
+        //console.log(anual1_btc[anual1_btc.length-1])
     }
+
 
 
     ///////////////FUTURE call////////////////////////
@@ -91,7 +95,7 @@ async function f1(){
 
         let tasa = futterf_btc / spotter_btc -1;
 
-        let anual = ((((tasa/diff6m)+1)**365)-1)*100;
+        anual2_btc.push(((((tasa/diff6m)+1)**365)-1)*100);
 
         //console.log(anual)
    
@@ -118,7 +122,8 @@ async function f1(){
     let futter_eth = null;
     let futterf_eth = null;
 
-    let anual2 = null;
+    let anual1_eth = [];
+    let anual2_eth = []
 
 
     ////////////////SPOT call////////////////////////
@@ -141,9 +146,7 @@ async function f1(){
 
         let tasa = futter_eth / spotter_eth -1;
 
-        anual2 = ((((tasa/diff3m)+1)**365)-1)*100;
-
-
+        anual1_eth.push(((((tasa/diff3m)+1)**365)-1)*100);
     }
 
 
@@ -157,23 +160,117 @@ async function f1(){
 
         let tasa = futterf_eth / spotter_eth -1;
 
-        let anual = ((((tasa/diff6m)+1)**365)-1)*100;
+        anual2_eth.push(((((tasa/diff6m)+1)**365)-1)*100);
 
    
     }
 
-    function yourFunction(){
-        // do whatever you like here
-        console.log(anual1[anual1.length-1])
-        tasa_actual = anual1[anual1.length-1]
-        setTimeout(yourFunction, 500);
 
-        let text1 = document.querySelector(".nashi")
-        text1.innerText = parseFloat(`${tasa_actual}%`).toFixed(2);
+
+        //////////////////////////MAX RATE FOR SHORT CONTRACTS//////////////////////////
+
+    function Maxrate3m(){
+        // First test; to get to know:
+        /*
+        tasa_actual = anual1_btc[anual1_btc.length-1];
+        tasa_actual = (Math.round(tasa_actual * 100) / 100).toFixed(3);
+
+        let anual1_text = document.querySelector(".anual3m");
+        anual1_text.innerText = (`${tasa_actual}%`);
+        */
+
+        // Second test; MAX functionality:
+        let anu1_btc = anual1_btc[anual1_btc.length-1];
+        let anu1_eth = anual1_eth[anual1_eth.length-1];
+
+        anual1_max = Math.max(anu1_btc, anu1_eth);
+
+        //console.log(anual1_max);
+
+        //Show the MAX rate in screen
+        tasa_anual1_maxed = (Math.round(anual1_max * 100) / 100).toFixed(3);
+        let anual1_text = document.querySelector(".anual3m");
+        anual1_text.innerText = (`${tasa_anual1_maxed}%`);
+
+        let direct3m = document.querySelector(".dir3m");
+
+        //print maxed tikker:
+        if (anual1_max == anu1_btc){
+            console.log("BTC is Max anual1 rate !");
+            //ADD DIRECT RATE TO FINEPRINT:
+            direct3m.innerText = (`${(((futter_btc / spotter_btc -1)*100/100)*100).toFixed(3)}%`)
+        }
+        if (anual1_max == anu1_eth){
+            console.log("ETH is Max anual1 rate !");
+            //ADD DIRECT RATE TO FINEPRINT:
+            direct3m.innerText = (`${(((futter_eth / spotter_eth -1)*100/100)*100).toFixed(3)}%`)
+        }
+
+
+
+
+
+
+        //SET TIMEOUT TO ASK FOR ALL LATEST INFO IN ARRAYS
+        setTimeout(Maxrate3m, 1);
+        
     }
-    
-    yourFunction();
 
+    Maxrate3m();
+    
+
+
+
+
+    //////////////////////////MAX RATE FOR LONG CONTRACTS//////////////////////////
+    function Maxrate6m(){
+        // First test; to get to know:
+        /*
+        tasa_actual = anual2_btc[anual2_btc.length-1];
+        tasa_actual = (Math.round(tasa_actual * 100) / 100).toFixed(3);
+
+        let anual2_text = document.querySelector(".anual3m");
+        anual2_text.innerText = (`${tasa_actual}%`);
+        */
+
+        // Second test; MAX functionality:
+        let anu2_btc = anual2_btc[anual2_btc.length-1];
+        let anu2_eth = anual2_eth[anual2_eth.length-1];
+
+        anual2_max = Math.max(anu2_btc, anu2_eth);
+
+        //console.log(anual2_max);
+
+        //Show the MAX rate in screen
+        tasa_anual2_maxed = (Math.round(anual2_max * 100) / 100).toFixed(3);
+        let anual2_text = document.querySelector(".anual6m");
+        anual2_text.innerText = (`${tasa_anual2_maxed}%`);
+
+
+        let direct6m = document.querySelector(".dir6m");
+
+        //print maxed tikker:
+        if (anual2_max == anu2_btc){
+            console.log("BTC is Max anual2 rate !");
+            //ADD DIRECT RATE TO FINEPRINT:
+            direct6m.innerText = (`${(((futterf_btc / spotter_btc -1)*100/100)*100).toFixed(3)}%`)
+        }
+        if (anual2_max == anu2_eth){
+            console.log("ETH is Max anual2 rate !");
+            //ADD DIRECT RATE TO FINEPRINT:
+            direct6m.innerText = (`${(((futterf_eth / spotter_eth -1)*100/100)*100).toFixed(3)}%`)
+        }
+
+
+
+
+
+        //SET TIMEOUT TO ASK FOR ALL LATEST INFO IN ARRAYS
+        setTimeout(Maxrate6m, 1);
+        
+    }
+
+    Maxrate6m();
 
 }
 
