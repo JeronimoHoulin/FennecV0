@@ -14,4 +14,5 @@ Any further development can be in the form of:
      Ex: Kraken, Poloniex, Coinbase, Bitrex, Kucoin, bitfinex...
   2) A larger display of available stablecoins.
   3) Integration of other investment strategies (i.e. perpetual futures options).
-  4) More TBA.
+  4) Intra-platform (CEX & DEX spreads).
+  5) More TBA.
