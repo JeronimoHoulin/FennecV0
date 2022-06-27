@@ -12,7 +12,7 @@ Any further development can be in the form of:
   1) A larger amount of markets (CEXs) where more interesting interest rates are attainable.
      (Where it's necesarry to know how to work with more API's BUT WILL ALSO BRING MORE MATURITIES).
      Ex: Kraken, Poloniex, Coinbase, Bitrex, Kucoin, bitfinex...
-  2) A larger display of available stablecoins.
-  3) Integration of other investment strategies (i.e. perpetual futures options).
+  2) A broader compatibility with stablecoins, ex: USDC, DAI, BUSD...
+  3) Integration of other investment strategies (i.e. perpetual futures, options...).
   4) Intra-platform (CEX & DEX spreads).
-  5) More TBA.
+  5) More (?).
